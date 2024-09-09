@@ -4,18 +4,19 @@
     <head>
         <meta charset="UTF-8">
         <title>{% block title %}{% endblock %}</title>
-    <link href="{% static "css/index.css" %}" rel="stylesheet">
+    <link href="{% static "css/skargi.css" %}" rel="stylesheet">
     </head>
     <body>
         <header>
             <h1>Skarga</h1>
         </header>
-    <div class="Zazalenie">
-        <h3> {{ rep.imie }} </h3>
-        <h3> {{ rep.nazwisko }} </h3>
-        <p> {{ rep.zgloszono }}</p>
-        <p> {{ rep.opis }}</p>
-    </div>
-
+        <main class="detail">
+            <div class="Zazalenie">
+                <h3> {{ rep.imie }} </h3>
+                <h3> {{ rep.nazwisko }} </h3>
+                <p> {{ rep.zgloszono }}</p>
+                <p> {{ rep.opis }}</p>
+            </div>
+        </main>
     </body>
 </html>
