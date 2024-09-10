@@ -23,6 +23,7 @@ h1{
     flex-direction: column;
     width: 33%;
     flex-wrap: wrap;
+    margin: 1rem;
 }
 
 .detail{
@@ -30,4 +31,7 @@ h1{
     justify-content: center;
     align-items: center;
     margin-top: 1rem;
+}
+.opis{
+    padding: 1.5rem;
 }

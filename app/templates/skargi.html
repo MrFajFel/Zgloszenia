@@ -2,14 +2,13 @@
 {% load static %}
 
 
-<link href="{% static "css/skargi.css" %}" rel="stylesheet">
 {% block content %}
     {% for User in Users %}
     <div class="Zazalenie">
         <h3> {{ User.imie }} </h3>
         <h3> {{ User.nazwisko }} </h3>
         <p> {{ User.zgloszono }}</p>
-        <a href="{{ User.zgloszono|date:'Y/m/d/H/i/s' }}" class=""><span> Zobacz Wiecej </span></a>
+        <a href="{{ User.zgloszono|date:'Y/m/d/H/i/s' }}" class="guzikszczegoly"><span> Zobacz Wiecej </span></a>
     </div>
     {% endfor %}
 {% endblock %}

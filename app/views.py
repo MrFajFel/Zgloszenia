@@ -1,14 +1,63 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from django.views.generic import ListView
+from app.form import LogForm
 
 from app.models import User
 
 
 class RepUsers(ListView):
-    queryset = User.objects.all()
+    queryset = User.objects.all().order_by('-zgloszono')
     context_object_name = 'Users'
     paginate_by = 9
     template_name = 'skargi.html'
+
+    def get(self, request, *args, **kwargs):
+        # Sprawdzenie, czy ciasteczko 'Zalogowany' ma wartość '1'
+        if request.COOKIES.get('Zalogowany') != '1':
+            # Jeśli ciasteczko nie istnieje lub ma inną wartość, przekierowanie na stronę logowania
+            return redirect('app:logowanie')
+
+        # Jeśli ciasteczko jest poprawne, kontynuuj z renderowaniem widoku
+        return super().get(request, *args, **kwargs)
+
+
+def logowanie(request):
+    if request.method == 'POST':
+        form = LogForm(request.POST)
+        if form.is_valid():
+            # Sprawdzenie danych logowania
+            for user in User.objects.all():
+                if (
+                        form.cleaned_data['first_name'] == user.first_name and
+                        form.cleaned_data['last_name'] == user.last_name and
+                        form.cleaned_data['computer'] == user.computer
+                ):
+                    # Tworzenie odpowiedzi z przekierowaniem
+                    response = HttpResponseRedirect('/logs/')  # lub reverse('app:info')
+                    response.set_cookie("Zalogowany", '1')  # Ustawienie ciasteczka
+                    return response
+
+            # Jeśli dane logowania są niepoprawne, przekaż błąd
+            form.add_error(None, "Niepoprawne dane logowania")
+
+    else:
+        form = LogForm()
+
+    return render(request, 'logowanie.html', {'form': form})
+
+
+
+def skarga(request):
+    if request.method == 'POST':
+        form = LogForm(request.POST)
+        if form.is_valid():  # sprawdzenie czy formularz jest wlasciwy
+            user = form.save(commit=False)
+            user.save()
+            return redirect('app:skarga')
+    else:
+        form = LogForm()
+    return render(request, 'napiszSkarge.html', {'form': form})
+
 
 def reported(request, year, month, day,hour,minute,second):
     rep = get_object_or_404(User,

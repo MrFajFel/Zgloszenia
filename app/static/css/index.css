@@ -21,10 +21,46 @@ h1{
 main{
     display: flex;
     background-color: #ECE7EA;
-    height: 100px;
     width: auto;
     margin-left: 1rem;
     margin-right: 1rem;
     border-radius: 10px;
+    flex-wrap: wrap;
+}
+.Zazalenie{
+    display: flex;
+    flex-direction: column;
+    width: 30%;
+    height: fit-content;
+    margin-left: 1rem;
+    margin-bottom: 1rem;
+    margin-top: 1rem;
+    background-color: white;
+    border-radius: 2%;
+    padding: 1rem;
+}
+.guzikszczegoly{
+    text-decoration: none;
+    color: white;
+    text-align: center;
+}
+.guzikszczegoly span{
+    background-color: #232C33;
+    padding: 5px;
+}
+.guzikszczegoly span:hover{
+    background-color: white;
+    color: #232C33;
+    animation: 1s normal animacjaguzik;
 }
 
+@keyframes animacjaguzik {
+    0%{
+        background-color: #232C33;
+        color: white;
+    }
+    100%{
+        background-color: white;
+        color: #232C33;
+    }
+}
