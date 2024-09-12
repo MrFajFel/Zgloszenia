@@ -9,4 +9,8 @@ class User(Model):
     nazwisko = models.CharField(max_length=100)
     zgloszono = models.DateTimeField(default=timezone.now)
     opis = models.CharField(max_length=15000)
+
+class MyAdmin(Model):
+    nickname = models.CharField(max_length=100)
+    password = models.CharField(max_length=100)
 # Create your models here.

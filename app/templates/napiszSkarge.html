@@ -4,18 +4,27 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="{% static "css/skargi.css" %}" rel="stylesheet">
     <title>Document</title>
 </head>
 <body>
     <main>
         {% block content %}
-             <form method="post">
+            <div class="skargi">
+                <form method="post">
                         {% csrf_token %}
                         {{ form.as_p }}
                         <div class="guziklogowania">
-                            <button type="submit" id="" class="">Wyslij</button>
+                            <button type="submit" id="btn" class="">Wyslij</button>
                         </div>
                 </form>
+                <script>
+                    btn1 = document.getElementById('btn')
+                    btn1.addEventListener('click',() => {
+                        alert("Wysłano")
+                    })
+                </script>
+            </div>
         {% endblock %}
     </main>
 </body>

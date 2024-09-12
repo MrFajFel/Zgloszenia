@@ -35,3 +35,15 @@ h1{
 .opis{
     padding: 1.5rem;
 }
+
+.skargi{
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+textarea {
+    resize: none;
+}

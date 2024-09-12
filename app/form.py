@@ -1,7 +1,13 @@
 from django import forms
-from app.models import User
+from app.models import MyAdmin,User
 
 class LogForm(forms.ModelForm):
+    class Meta:
+        model = MyAdmin
+        fields = ('nickname', 'password')
+
+
+class SkForm(forms.ModelForm):
     class Meta:
         model = User
         fields = ('imie', 'nazwisko','opis')

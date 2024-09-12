@@ -1,8 +1,13 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from django.views.generic import ListView
-from app.form import LogForm
+from app.form import LogForm,SkForm
+from django.http import HttpResponseRedirect
+from django.urls import reverse
+from django.http import HttpResponse
+from rest_framework.response import Response
 
-from app.models import User
+
+from app.models import User,MyAdmin
 
 
 class RepUsers(ListView):
@@ -26,14 +31,13 @@ def logowanie(request):
         form = LogForm(request.POST)
         if form.is_valid():
             # Sprawdzenie danych logowania
-            for user in User.objects.all():
+            for aadmin in MyAdmin.objects.all():
                 if (
-                        form.cleaned_data['first_name'] == user.first_name and
-                        form.cleaned_data['last_name'] == user.last_name and
-                        form.cleaned_data['computer'] == user.computer
+                        form.cleaned_data['nickname'] == aadmin.nickname and
+                        form.cleaned_data['password'] == aadmin.password
                 ):
                     # Tworzenie odpowiedzi z przekierowaniem
-                    response = HttpResponseRedirect('/logs/')  # lub reverse('app:info')
+                    response = HttpResponseRedirect('/base/')  # lub reverse('app:info')
                     response.set_cookie("Zalogowany", '1')  # Ustawienie ciasteczka
                     return response
 
@@ -49,13 +53,13 @@ def logowanie(request):
 
 def skarga(request):
     if request.method == 'POST':
-        form = LogForm(request.POST)
+        form = SkForm(request.POST)
         if form.is_valid():  # sprawdzenie czy formularz jest wlasciwy
             user = form.save(commit=False)
             user.save()
             return redirect('app:skarga')
     else:
-        form = LogForm()
+        form = SkForm()
     return render(request, 'napiszSkarge.html', {'form': form})
 
 
