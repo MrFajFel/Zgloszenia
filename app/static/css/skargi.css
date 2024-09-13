@@ -1,49 +1,95 @@
-@import url('https://fonts.googleapis.com/css2?family=Carter+One&family=Playwrite+CU:wght@100..400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
 *{
     padding: 0;
     margin:0;
 
 }
-header{
-    display: flex;
-    width: 100%;
-    justify-content: center;
-    align-items: center;
-}
-h1{
+h1 {
+    text-align: center;
+    background: #dc131b;
+    border-radius: 10px 10px 0 0;
+    padding: 2%;
+    color: white;
     margin-top: 1rem;
-    font-family: "Carter One", system-ui;
+    font-family: "Roboto", system-ui;
     font-weight: 400;
     font-style: normal;
-    text-shadow: 2px 2px 1px black;
+    text-shadow: 2px 2px 1px #232C33;
 }
 
 .Zazalenie{
     display: flex;
     flex-direction: column;
-    width: 25%;
+    width: 33%;
     flex-wrap: wrap;
     margin: 1rem;
 }
 
 .detail{
-    display: flex;
+    width: 50%;
+    height: auto;
+    margin:  2% auto;
+    background: #f5f5f5;
     justify-content: center;
     align-items: center;
-    margin-top: 1rem;
+    border-radius: 10px;
+    font-family: "Roboto", system-ui;
+}
+.data {
+    padding-bottom: 0.75rem;
+}
+.detail .Zazalenie {
+    width: 85%;
+    padding: 1rem;
+    margin: auto;
+}
+.detail h3 {
+    background: indianred;
+    padding: 1rem;
+    color: #f5f5f5;
 }
 .opis{
-    padding: 1.5rem;
+    padding: 0.5rem;
+    height: auto;
+    background: #e0e0e0;
 }
-
-.skargi{
-    display: flex;
-    width: 100%;
+.napiszSkarge {
+    width: 40%;
+    height: 75vh;
+    margin: 5% auto;
+    background: #f5f5f5;
     justify-content: center;
     align-items: center;
-    height: 100vh;
+    border-radius: 10px;
+}
+.naglowek {
+    margin: auto;
+    text-align: center;
+    background: #dc131b;
+    border-radius: 10px 10px 0 0;
+    padding: 2%;
+    color: white;
+}
+.skargi{
+    width: 70%;
+    font-family: "Roboto", system-ui;
+    background: #f5f5f5;
+    display: flex;
+    text-align: center;
+    padding-top: 2%;
+    margin: auto;
+}
+.skargi p {
+    text-align: left;
+    padding: 2%;
+}
+.skargi input {
+    width: 100%;
+    padding: 2% 0 2% 0;
+    margin: auto;
 }
 
 textarea {
+    width: 100%;
     resize: none;
 }

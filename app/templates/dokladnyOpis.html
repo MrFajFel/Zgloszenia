@@ -7,13 +7,11 @@
     <link href="{% static "css/skargi.css" %}" rel="stylesheet">
     </head>
     <body>
-        <header>
-            <h1>Skarga</h1>
-        </header>
         <main class="detail">
+            <h1>Skarga</h1>
             <div class="Zazalenie">
+                <p class="data"> {{ rep.zgloszono }}</p>
                 <h3> {{ rep.imie }}  {{ rep.nazwisko }}</h3>
-                <p> {{ rep.zgloszono }}</p>
                 <p class="opis"> {{ rep.opis }}</p>
             </div>
         </main>
