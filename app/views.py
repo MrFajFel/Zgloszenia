@@ -4,6 +4,7 @@ from app.form import LogForm,SkForm
 from django.http import HttpResponseRedirect
 from django.urls import reverse
 from django.http import HttpResponse
+from rest_framework.response import Response
 
 
 from app.models import User,MyAdmin
@@ -12,7 +13,7 @@ from app.models import User,MyAdmin
 class RepUsers(ListView):
     queryset = User.objects.all().order_by('-zgloszono')
     context_object_name = 'Users'
-    paginate_by = 9
+    paginate_by = 2
     template_name = 'skargi.html'
 
     def get(self, request, *args, **kwargs):

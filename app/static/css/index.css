@@ -62,6 +62,12 @@ main{
     animation: 1s normal animacjaguzik;
 }
 
+.pagination{
+    width: 100%;
+    text-align: center;
+
+}
+
 @keyframes animacjaguzik {
     0%{
         background-color: #dc131b;

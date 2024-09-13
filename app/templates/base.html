@@ -15,5 +15,8 @@
 
             {% endblock %}
         </main>
+        <p class="pagination">
+            {% include "pagination.html" with page=page_obj %}
+        </p>
     </body>
 </html>

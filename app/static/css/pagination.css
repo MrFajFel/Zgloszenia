@@ -1,0 +1,9 @@
+.pagiButton{
+    text-decoration: none;
+}
+.pagiButton span{
+    font-size: 150%;
+    font-weight: bold;
+    margin-left: 1rem;
+    margin-right: 1rem;
+}
