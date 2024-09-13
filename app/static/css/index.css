@@ -37,7 +37,13 @@ main{
     margin-top: 1rem;
     background-color: white;
     border-radius: 2%;
-    padding: 1rem;
+    padding-left: 1rem;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+}
+
+.Zazalenie p{
+    padding-bottom: 1rem;
 }
 .guzikszczegoly{
     text-decoration: none;
@@ -47,6 +53,7 @@ main{
 .guzikszczegoly span{
     background-color: #232C33;
     padding: 5px;
+    margin: 5px;
 }
 .guzikszczegoly span:hover{
     background-color: white;

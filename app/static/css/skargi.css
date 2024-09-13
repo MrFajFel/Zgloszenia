@@ -21,7 +21,7 @@ h1{
 .Zazalenie{
     display: flex;
     flex-direction: column;
-    width: 33%;
+    width: 25%;
     flex-wrap: wrap;
     margin: 1rem;
 }
