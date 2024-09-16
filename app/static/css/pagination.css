@@ -2,8 +2,9 @@
     text-decoration: none;
 }
 .pagiButton span{
-    font-size: 150%;
-    font-weight: bold;
+    font-size: 250%;
+    font-weight:bolder;
     margin-left: 1rem;
     margin-right: 1rem;
+    color: #dc131b;
 }
