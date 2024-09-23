@@ -12,17 +12,22 @@
         <h1 class="naglowek"> Napisz skargę</h1>
         {% block content %}
             <div class="skargi">
-                <form method="post">
+                <form method="post" name="formularz">
                         {% csrf_token %}
                         {{ form.as_p }}
                         <div class="guziklogowania">
-                            <button type="submit" id="btn" class="">Wyslij</button>
+                            <button type="submit" id="btn" class="guzikszczegoly">Wyślij</button>
                         </div>
                 </form>
                 <script>
                     btn1 = document.getElementById('btn')
                     btn1.addEventListener('click',() => {
-                        alert("Wysłano")
+                        let imie = document.forms["formularz"]["imie"].value;
+                        let nazwisko = document.forms["formularz"]["nazwisko"].value;
+                        let opis = document.forms["formularz"]["opis"].value;
+                        if (imie != "" && nazwisko != "" && opis != "") {
+                            alert("Wysłano")
+                        }
                     })
                 </script>
             </div>

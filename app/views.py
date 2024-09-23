@@ -4,7 +4,6 @@ from app.form import LogForm,SkForm
 from django.http import HttpResponseRedirect
 from django.urls import reverse
 from django.http import HttpResponse
-from rest_framework.response import Response
 
 
 from app.models import User,MyAdmin
