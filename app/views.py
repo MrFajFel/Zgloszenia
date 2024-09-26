@@ -12,7 +12,7 @@ from app.models import User,MyAdmin
 class RepUsers(ListView):
     queryset = User.objects.all().order_by('-zgloszono')
     context_object_name = 'Users'
-    paginate_by = 3
+    paginate_by = 15
     template_name = 'skargi.html'
 
     def get(self, request, *args, **kwargs):
