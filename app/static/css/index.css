@@ -37,11 +37,15 @@ main{
     background-color: white;
     border-radius: 0.5rem;
 }
-.Zazalenie h3{
+.naglowekzazalenia {
     border-radius: 0.5rem 0.5rem 0 0;
     background: indianred;
     color: #f5f5f5;
     padding: 0.5rem;
+    display: flex;
+}
+.naglowekzazalenia h3 {
+    width: 90%;
 }
 .Zazalenie p {
     padding: 0.5rem;

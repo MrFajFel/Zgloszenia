@@ -58,7 +58,6 @@ h1 {
 }
 .napiszSkarge {
     width: 40%;
-    height: 75vh;
     margin: 5% auto;
     background: #f5f5f5;
     justify-content: center;
@@ -75,11 +74,13 @@ h1 {
 }
 .skargi{
     width: 70%;
+    height: auto;
     font-family: "Roboto", system-ui;
     background: #f5f5f5;
     display: flex;
     text-align: center;
     padding-top: 2%;
+    padding-bottom: 2%;
     margin: auto;
 }
 .skargi p {

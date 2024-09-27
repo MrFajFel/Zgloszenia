@@ -5,6 +5,9 @@ class LogForm(forms.ModelForm):
     class Meta:
         model = MyAdmin
         fields = ('nickname', 'password')
+        widgets = {
+            'password': forms.PasswordInput()
+        }
 
 
 class SkForm(forms.ModelForm):

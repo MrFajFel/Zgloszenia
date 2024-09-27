@@ -12,4 +12,5 @@ urlpatterns = [
          name='reported'),
     path('',views.skarga, name="skarga"),
     path('logowanie/',views.logowanie, name="logowanie"),
+    # path('zmiana/',views.edit_note,name="edit_note"),
 ]

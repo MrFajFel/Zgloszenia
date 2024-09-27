@@ -4,7 +4,7 @@ from app.form import LogForm,SkForm
 from django.http import HttpResponseRedirect
 from django.urls import reverse
 from django.http import HttpResponse
-
+from django.contrib.auth.hashers import make_password, check_password
 
 from app.models import User,MyAdmin
 
@@ -24,23 +24,23 @@ class RepUsers(ListView):
         # Jeśli ciasteczko jest poprawne, kontynuuj z renderowaniem widoku
         return super().get(request, *args, **kwargs)
 
-
 def logowanie(request):
     if request.method == 'POST':
         form = LogForm(request.POST)
         if form.is_valid():
-            # Sprawdzenie danych logowania
+            #Sprawdzenie danych logowania
             for aadmin in MyAdmin.objects.all():
+
                 if (
                         form.cleaned_data['nickname'] == aadmin.nickname and
-                        form.cleaned_data['password'] == aadmin.password
+                        check_password(form.cleaned_data['password'], aadmin.password)
                 ):
                     # Tworzenie odpowiedzi z przekierowaniem
                     response = HttpResponseRedirect('/base/')  # lub reverse('app:info')
                     response.set_cookie("Zalogowany", '1')  # Ustawienie ciasteczka
                     return response
 
-            # Jeśli dane logowania są niepoprawne, przekaż błąd
+            #Jeśli dane logowania są niepoprawne, przekaż błąd
             form.add_error(None, "Niepoprawne dane logowania")
 
     else:
@@ -73,4 +73,16 @@ def reported(request, year, month, day,hour,minute,second):
                                 )
     return render(request, "dokladnyOpis.html",
                   {'rep': rep, })
-# Create your views here.
+
+# def edit_note(request,year,month,day,hour,minute,second):
+#     rep = get_object_or_404(User,
+#                             zgloszono__year=year,
+#                             zgloszono__month=month,
+#                             zgloszono__day=day,
+#                             zgloszono__hour=hour,
+#                             zgloszono__minute=minute,
+#                             zgloszono__second=second,
+#                             )
+#     return render(request, "skargi.html",
+#                   {'rep': rep, })
+# # Create your views here.

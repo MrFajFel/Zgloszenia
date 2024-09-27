@@ -4,10 +4,14 @@
 
 {% block content %}
     {% for User in Users %}
+
+{% if User.status == "widoczne" %}
     <div class="Zazalenie">
-        <h3> {{ User.imie }} {{ User.nazwisko }}</h3>
+        <div class="naglowekzazalenia"><h3> {{ User.imie }} {{ User.nazwisko }}</h3><a href="/zmiana/">Ukryj</a></div>
         <p> {{ User.zgloszono }}</p>
         <a href="{{ User.zgloszono|date:'Y/m/d/H/i/s' }}" class="guzikszczegoly"><span> Zobacz więcej </span></a>
     </div>
+{% endif %}
+
     {% endfor %}
 {% endblock %}
