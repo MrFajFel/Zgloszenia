@@ -74,15 +74,16 @@ def reported(request, year, month, day,hour,minute,second):
     return render(request, "dokladnyOpis.html",
                   {'rep': rep, })
 
-# def edit_note(request,year,month,day,hour,minute,second):
-#     rep = get_object_or_404(User,
-#                             zgloszono__year=year,
-#                             zgloszono__month=month,
-#                             zgloszono__day=day,
-#                             zgloszono__hour=hour,
-#                             zgloszono__minute=minute,
-#                             zgloszono__second=second,
-#                             )
-#     return render(request, "skargi.html",
-#                   {'rep': rep, })
-# # Create your views here.
+def edit_note(request,year,month,day,hour,minute,second):
+    user = get_object_or_404(User,
+                            zgloszono__year=year,
+                            zgloszono__month=month,
+                            zgloszono__day=day,
+                            zgloszono__hour=hour,
+                            zgloszono__minute=minute,
+                            zgloszono__second=second,
+                            )
+    user.status = 'ukryte'
+    user.save()
+    return redirect('app:rep')
+# Create your views here.

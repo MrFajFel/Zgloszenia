@@ -12,5 +12,5 @@ urlpatterns = [
          name='reported'),
     path('',views.skarga, name="skarga"),
     path('logowanie/',views.logowanie, name="logowanie"),
-    # path('zmiana/',views.edit_note,name="edit_note"),
+    path('edit/<int:year>/<int:month>/<int:day>/<int:hour>/<int:minute>/<int:second>/', views.edit_note, name="edit_note"),
 ]

@@ -7,7 +7,9 @@
 
 {% if User.status == "widoczne" %}
     <div class="Zazalenie">
-        <div class="naglowekzazalenia"><h3> {{ User.imie }} {{ User.nazwisko }}</h3><a href="/zmiana/">Ukryj</a></div>
+        <div class="naglowekzazalenia"><h3> {{ User.imie }} {{ User.nazwisko }}</h3>
+            <a href=" /edit/{{ User.zgloszono|date:'Y/m/d/H/i/s' }}">Ukryj</a>
+        </div>
         <p> {{ User.zgloszono }}</p>
         <a href="{{ User.zgloszono|date:'Y/m/d/H/i/s' }}" class="guzikszczegoly"><span> Zobacz więcej </span></a>
     </div>
